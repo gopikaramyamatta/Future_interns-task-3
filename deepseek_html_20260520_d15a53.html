@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Saffron Spice - Authentic Indian Fine Dining Restaurant in Eluru. Best traditional cuisine, private dining, and catering services.">
+    <meta name="keywords" content="restaurant, fine dining, Indian food, Eluru, Saffron Spice, catering">
+    <title>Saffron Spice | Authentic Fine Dining Restaurant - Eluru</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section with Parallax */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.3s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.9);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: 0.3s;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ff6b35;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ff6b35;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 5%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #ff6b35;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            color: #666;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Menu Section */
+        .menu-categories {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            padding: 0.8rem 1.5rem;
+            background: #f0f0f0;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            border-radius: 5px;
+        }
+
+        .category-btn.active {
+            background: #ff6b35;
+            color: white;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .menu-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .menu-info {
+            padding: 1.5rem;
+        }
+
+        .menu-info h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .price {
+            color: #ff6b35;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-top: 0.5rem;
+        }
+
+        /* Special Offers */
+        .offers {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .offer-card {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+        }
+
+        .offer-card i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: #f9f9f9;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .testimonial-card i {
+            font-size: 2rem;
+            color: #ff6b35;
+            margin-bottom: 1rem;
+        }
+
+        .rating {
+            color: #ffc107;
+            margin: 1rem 0;
+        }
+
+        /* Reservation Form */
+        .reservation-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #ff6b35;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: 0.3s;
+            width: 100%;
+        }
+
+        .btn:hover {
+            background: #e55a2b;
+            transform: translateY(-2px);
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-info {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .contact-info i {
+            font-size: 2rem;
+            color: #ff6b35;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 3rem 5% 1rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-grid h3 {
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #ff6b35;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="logo">Saffron Spice</div>
+        <div class="mobile-menu" onclick="toggleMenu()">☰</div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#offers">Offers</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#reservation">Reserve</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Saffron Spice</h1>
+            <p>Authentic Indian Fine Dining Experience in Eluru</p>
+            <a href="#reservation" class="btn" style="width: auto; display: inline-block;">Book a Table</a>
+            <a href="#menu" class="btn" style="width: auto; display: inline-block; background: transparent; border: 2px solid white; margin-left: 1rem;">View Menu</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>Our Story</h2>
+            <div class="section-subtitle">Tradition meets innovation</div>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>Saffron Spice brings the rich culinary heritage of India to Eluru. Founded in 2024, our restaurant combines traditional recipes passed down through generations with modern cooking techniques.</p>
+                    <p>Every dish is prepared with love using the freshest ingredients and authentic spices sourced directly from local farmers. Our chefs have over 15 years of experience in fine dining restaurants across India.</p>
+                    <p>We believe in creating memorable dining experiences that celebrate the diversity of Indian cuisine, from the fiery curries of the south to the creamy delicacies of the north.</p>
+                    <p><strong>Opening Hours:</strong><br>
+                    Mon-Sat: 11:00 AM - 10:30 PM<br>
+                    Sunday: 12:00 PM - 9:00 PM</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600" alt="Restaurant Interior">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" style="background: #f9f9f9;">
+        <div class="container">
+            <h2>Our Specialties</h2>
+            <div class="section-subtitle">Crafted with passion</div>
+            
+            <div class="menu-categories">
+                <button class="category-btn active" onclick="filterMenu('all')">All</button>
+                <button class="category-btn" onclick="filterMenu('starters')">Starters</button>
+                <button class="category-btn" onclick="filterMenu('main')">Main Course</button>
+                <button class="category-btn" onclick="filterMenu('breads')">Breads & Rice</button>
+                <button class="category-btn" onclick="filterMenu('desserts')">Desserts</button>
+            </div>
+            
+            <div class="menu-grid" id="menuGrid">
+                <!-- Menu items will be loaded via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offers -->
+    <section id="offers" class="offers">
+        <div class="container">
+            <h2 style="color: white;">Special Offers</h2>
+            <div class="section-subtitle" style="color: #ffd700;">Limited time deals</div>
+            <div class="offers-grid">
+                <div class="offer-card">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Lunch Special</h3>
+                    <p>20% off on all main courses</p>
+                    <small>Mon-Fri, 12 PM - 3 PM</small>
+                </div>
+                <div class="offer-card">
+                    <i class="fas fa-birthday-cake"></i>
+                    <h3>Birthday Free Meal</h3>
+                    <p>Free dessert & 10% off for birthday person</p>
+                    <small>Valid with valid ID</small>
+                </div>
+                <div class="offer-card">
+                    <i class="fas fa-wine-glass-alt"></i>
+                    <h3>Happy Hours</h3>
+                    <p>Buy 1 Get 1 Free on mocktails</p>
+                    <small>4 PM - 7 PM daily</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery">
+        <div class="container">
+            <h2>Photo Gallery</h2>
+            <div class="section-subtitle">A visual journey</div>
+            <div class="gallery-grid" id="galleryGrid"></div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" style="background: #f9f9f9;">
+        <div class="container">
+            <h2>What Our Guests Say</h2>
+            <div class="section-subtitle">Real reviews from real customers</div>
+            <div class="testimonials-grid" id="testimonialsGrid"></div>
+        </div>
+    </section>
+
+    <!-- Reservation -->
+    <section id="reservation">
+        <div class="container">
+            <h2>Make a Reservation</h2>
+            <div class="section-subtitle">Book your table now</div>
+            <div class="reservation-form">
+                <form id="reservationForm">
+                    <div class="form-group">
+                        <input type="text" id="resName" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="resEmail" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="resPhone" placeholder="Phone Number" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="date" id="resDate" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="time" id="resTime" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="resGuests">
+                            <option>1 Guest</option>
+                            <option>2 Guests</option>
+                            <option>3 Guests</option>
+                            <option>4 Guests</option>
+                            <option>5+ Guests</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="resSpecial" placeholder="Special requests (allergies, occasion, etc.)"></textarea>
+                    </div>
+                    <button type="submit" class="btn">Confirm Reservation</button>
+                    <div id="resStatus" style="margin-top: 1rem; text-align: center;"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Visit Us</h2>
+            <div class="section-subtitle">Get in touch</div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Location</h3>
+                    <p>Near Eluru Railway Station,<br>Bhogapuram Road, Eluru, AP - 534001</p>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-phone"></i>
+                    <h3>Call Us</h3>
+                    <p>+91 9491556558<br>+91 88888 99999</p>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>hello@saffronspice.com<br>reservations@saffronspice.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h3>Saffron Spice</h3>
+                <p>Authentic Indian Fine Dining<br>Est. 2024</p>
+            </div>
+            <div>
+                <h3>Quick Links</h3>
+                <p><a href="#menu" style="color: white; text-decoration: none;">Menu</a><br>
+                <a href="#reservation" style="color: white; text-decoration: none;">Reservations</a><br>
+                <a href="#offers" style="color: white; text-decoration: none;">Offers</a></p>
+            </div>
+            <div>
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-zomato"></i></a>
+                </div>
+            </div>
+            <div>
+                <h3>Newsletter</h3>
+                <form id="newsletterForm">
+                    <input type="email" placeholder="Your email" style="width: 100%; margin-bottom: 0.5rem;">
+                    <button type="submit" class="btn" style="padding: 0.5rem;">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Saffron Spice. All rights reserved. | Designed with ❤️ for Eluru</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(0,0,0,0.95)';
+            } else {
+                navbar.style.background = 'rgba(0,0,0,0.9)';
+            }
+        });
+
+        // Toggle mobile menu
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.display = 'none';
+            } else {
+                navLinks.style.display = 'flex';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '60px';
+                navLinks.style.left = '0';
+                navLinks.style.width = '100%';
+                navLinks.style.background = 'black';
+                navLinks.style.padding = '1rem';
+            }
+        }
+
+        // Menu Data
+        const menuItems = [
+            { name: "Butter Chicken", category: "main", price: "₹350", desc: "Creamy tomato gravy with tender chicken", img: "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=400" },
+            { name: "Paneer Tikka", category: "starters", price: "₹250", desc: "Grilled cottage cheese with spices", img: "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=400" },
+            { name: "Garlic Naan", category: "breads", price: "₹45", desc: "Freshly baked bread with garlic", img: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400" },
+            { name: "Biryani", category: "main", price: "₹280", desc: "Aromatic rice with spices & meat", img: "https://images.unsplash.com/photo-1563379091339-03b21ab4a5f8?w=400" },
+            { name: "Gulab Jamun", category: "desserts", price: "₹120", desc: "Milk solids in sugar syrup", img: "https://images.unsplash.com/photo-1589119908995-c8f86bd5bcb5?w=400" },
+            { name: "Chicken 65", category: "starters", price: "₹220", desc: "Spicy fried chicken", img: "https://images.unsplash.com/photo-1562967916-eb82221dfb92?w=400" },
+            { name: "Dal Makhani", category: "main", price: "₹210", desc: "Creamy black lentils", img: "https://images.unsplash.com/photo-1546833998-877b37c2e5c9?w=400" },
+            { name: "Rasmalai", category: "desserts", price: "₹140", desc: "Cottage cheese in sweet milk", img: "https://images.unsplash.com/photo-1565951902846-cf113192ffb8?w=400" }
+        ];
+
+        // Render Menu
+        function renderMenu(category = 'all') {
+            const filtered = category === 'all' ? menuItems : menuItems.filter(item => item.category === category);
+            const menuGrid = document.getElementById('menuGrid');
+            menuGrid.innerHTML = filtered.map(item => `
+                <div class="menu-item">
+                    <img src="${item.img}" alt="${item.name}">
+                    <div class="menu-info">
+                        <h3>${item.name}</h3>
+                        <p>${item.desc}</p>
+                        <div class="price">${item.price}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Filter Menu
+        function filterMenu(category) {
+            renderMenu(category);
+            document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        // Gallery Images
+        const galleryImages = [
+            "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400",
+            "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400",
+            "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400",
+            "https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=400",
+            "https://images.unsplash.com/photo-1537047902294-62a40c20a6ae?w=400",
+            "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=400"
+        ];
+
+        // Render Gallery
+        const galleryGrid = document.getElementById('galleryGrid');
+        galleryGrid.innerHTML = galleryImages.map(img => `<img src="${img}" alt="Gallery Image" onclick="openImage('${img}')">`).join('');
+
+        function openImage(src) {
+            window.open(src, '_blank');
+        }
+
+        // Testimonials
+        const testimonials = [
+            { name: "Ramesh Kumar", rating: 5, text: "Best Indian restaurant in Eluru! The butter chicken is amazing." },
+            { name: "Priya Sharma", rating: 5, text: "Authentic flavors and excellent service. Will definitely come back!" },
+            { name: "Ajay Reddy", rating: 4, text: "Great ambiance and delicious food. The biryani is a must-try." }
+        ];
+
+        const testimonialsGrid = document.getElementById('testimonialsGrid');
+        testimonialsGrid.innerHTML = testimonials.map(t => `
+            <div class="testimonial-card">
+                <i class="fas fa-quote-left"></i>
+                <p>${t.text}</p>
+                <div class="rating">${'★'.repeat(t.rating)}${'☆'.repeat(5-t.rating)}</div>
+                <h4>- ${t.name}</h4>
+            </div>
+        `).join('');
+
+        // Reservation Form
+        document.getElementById('reservationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('resName').value;
+            const date = document.getElementById('resDate').value;
+            const guests = document.getElementById('resGuests').value;
+            
+            // Store in localStorage
+            const reservations = JSON.parse(localStorage.getItem('restaurant_reservations') || '[]');
+            reservations.push({ name, date, guests, time: document.getElementById('resTime').value, timestamp: new Date().toISOString() });
+            localStorage.setItem('restaurant_reservations', JSON.stringify(reservations));
+            
+            document.getElementById('resStatus').innerHTML = `<div style="background: #d4edda; padding: 0.5rem; border-radius: 5px;">✅ Reservation confirmed! We'll call you shortly.</div>`;
+            this.reset();
+            
+            // Simulate email to restaurant owner
+            console.log('New reservation:', { name, date, guests });
+        });
+
+        // Newsletter
+        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input').value;
+            alert(`Thanks for subscribing! You'll receive our offers at ${email}`);
+            this.reset();
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    if (window.innerWidth <= 768) {
+                        document.getElementById('navLinks').style.display = 'none';
+                    }
+                }
+            });
+        });
+
+        // Initialize
+        renderMenu();
+        
+        // Set min date for reservation to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('resDate').min = today;
+    </script>
+</body>
+</html>
